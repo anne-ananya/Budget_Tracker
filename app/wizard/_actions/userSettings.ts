@@ -10,7 +10,6 @@ export async function UpdateUserCurrency(currency: string) {
     currency,
   });
 
-
   if (!parsedBody.success) {
     throw parsedBody.error;
   }
