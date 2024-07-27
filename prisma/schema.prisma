@@ -9,11 +9,10 @@ generator client {
 }
 
 datasource db {
-  provider = "portgresql"
+  provider = "postgresql"
   url      = env("POSTGRES_PRISMA_URL")
   directUrl = env("POSTGRES_URL_NON_POOLING")
 }
-
 
 model UserSettings {
   userId  String @id
@@ -41,14 +40,11 @@ model Transaction {
   userId      String
   type        String @default("income")
 
-
   category     String
   categoryIcon String
-
 }
 
-
-model MonthHistory{
+model MonthHistory {
   userId      String
   day        Int
   month       Int
@@ -56,18 +52,15 @@ model MonthHistory{
   income      Float
   expense     Float
 
-
   @@id([day, month, year, userId])
 }
 
-
-model YearHistory{
+model YearHistory {
   userId      String
   month       Int
   year        Int
   income      Float
   expense     Float
-
 
   @@id([month, year, userId])
 }
