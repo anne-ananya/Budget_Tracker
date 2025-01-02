@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/form";
 import {
   CreateCategorySchema,
-  CreateCategorySchemaType,
+  type CreateCategorySchemaType,
 } from "@/schema/categories";
 import { Input } from "@/components/ui/input";
 import {
@@ -27,17 +27,17 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { TransactionType } from "@/lib/types";
+import type { TransactionType } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CircleOff, Loader2, PlusSquare } from "lucide-react";
-import React, { ReactNode, useCallback } from "react";
+import React, { type ReactNode, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import Picker from "@emoji-mart/react";
 import data from "@emoji-mart/data";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { CreateCategory } from "../_actions/categories";
-import { Category } from "@prisma/client";
+import type { Category } from "@prisma/client";
 import { toast } from "sonner";
 import { useTheme } from "next-themes";
 

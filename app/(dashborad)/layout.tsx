@@ -1,13 +1,21 @@
 import Navbar from "@/components/Navbar";
-import React, { ReactNode } from "react";
+import React, { type ReactNode } from "react";
 
-function layout({ children }: { children: ReactNode }) {
+import RootProviders from "@/components/providers/RootProviders";
+
+export default function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
-    <div className="relative flex h-screen w-full flex-col">
-      <Navbar />
-      <div className="w-full">{children}</div>
-    </div>
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <RootProviders>
+          <Navbar/>
+          {children}
+        </RootProviders>
+      </body>
+    </html>
   );
 }
-
-export default layout;
