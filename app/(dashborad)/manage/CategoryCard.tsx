@@ -1,9 +1,7 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { TrashIcon } from "lucide-react";
-import DeleteCategoryDialog from "../_components/DeleteCategoryDialog";
-import { Category } from "@prisma/client";
+import type { Category } from "@prisma/client";
+import RemoveCategory from "./RemoveCategory";
 
 function CategoryCard({ category }: { category: Category }) {
   return (
@@ -14,18 +12,7 @@ function CategoryCard({ category }: { category: Category }) {
         </span>
         <span>{category.name}</span>
       </div>
-      <DeleteCategoryDialog
-        category={category}
-        trigger={
-          <Button
-            className="flex w-full items-center gap-2 rounded-t-none text-muted-foreground hover:bg-red-500/20"
-            variant="secondary"
-          >
-            <TrashIcon className="h-4 w-4" />
-            Remove
-          </Button>
-        }
-      />
+      <RemoveCategory category={category} />
     </div>
   );
 }

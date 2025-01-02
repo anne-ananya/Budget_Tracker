@@ -13,7 +13,7 @@ import IncomeCategoryList from "./IncomeCategories";
 import ExpenseCategoryList from "./ExpenseCategories";
 function Page() {
   return (
-    <>
+    <main>
       {/* HEADER */}
       <div className="border-b bg-card">
         <div className="container flex flex-wrap items-center justify-between gap-6 py-8">
@@ -41,7 +41,7 @@ function Page() {
         <IncomeCategoryList />
         <ExpenseCategoryList />
       </div>
-    </>
+    </main>
   );
 }
 
