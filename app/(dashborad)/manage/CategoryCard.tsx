@@ -6,6 +6,11 @@ import DeleteCategoryDialog from "../_components/DeleteCategoryDialog";
 import { Category } from "@prisma/client";
 
 function CategoryCard({ category }: { category: Category }) {
+  const handleConfirm = () => {
+    console.log(`Category ${category.name} deleted successfully.`);
+    // Add any additional actions on confirmation here, like refetching data
+  };
+
   return (
     <div className="flex flex-col justify-between rounded-md border shadow-md shadow-black/[0.1] dark:shadow-white/[0.1]">
       <div className="flex flex-col items-center gap-2 p-4">
@@ -16,6 +21,7 @@ function CategoryCard({ category }: { category: Category }) {
       </div>
       <DeleteCategoryDialog
         category={category}
+        onConfirm={handleConfirm} // Pass the onConfirm handler
         trigger={
           <Button
             className="flex w-full items-center gap-2 rounded-t-none text-muted-foreground hover:bg-red-500/20"
